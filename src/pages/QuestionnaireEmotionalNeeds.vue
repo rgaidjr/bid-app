@@ -89,61 +89,61 @@ import Chart from 'chart.js/auto';
 const emotionalNeeds = ref([
   {
     title: 'Affection',
-    description: 'Expressions of love through words, cards, flowers, gifts, hugs, kisses, etc.',
+    description: 'Nonsexual expression of care through words, cards, gifts, hugs, kisses, and courtesies; creating an environment that clearly and repeatedly expresses care.',
     importance: 0,
     satisfaction: 0
   },
   {
     title: 'Sexual Fulfillment',
-    description: 'Sexual intimacy, frequency, and quality of sexual experiences',
+    description: 'A sexual experience that is predictably enjoyable and frequent enough for you.',
     importance: 0,
     satisfaction: 0
   },
   {
-    title: 'Conversation',
-    description: 'Talking about events of the day, feelings, ideas, etc.',
+    title: 'Intimate Conversation',
+    description: 'Talking about feelings, topics of personal interest/ opinions, and plans.',
     importance: 0,
     satisfaction: 0
   },
   {
     title: 'Recreational Companionship',
-    description: 'Sharing activities and interests together',
+    description: 'Leisure activities with at least one other person.',
     importance: 0,
     satisfaction: 0
   },
   {
     title: 'Honesty and Openness',
-    description: 'Truthfulness, transparency, and sharing of feelings',
+    description: 'Truthful and frank expression of positive and negative feelings, events of the past, daily events and schedule, and plans for the future; not leaving a false impression.',
     importance: 0,
     satisfaction: 0
   },
   {
     title: 'Physical Attractiveness',
-    description: 'Taking care of personal appearance and hygiene',
+    description: 'Viewing physical traits of the opposite sex that are aesthetically and/or sexually pleasing',
     importance: 0,
     satisfaction: 0
   },
   {
     title: 'Financial Support',
-    description: 'Provision of financial resources for family needs',
+    description: 'Provision of the financial resources to house, feed, and clothe your family at a standard of living acceptable to you',
     importance: 0,
     satisfaction: 0
   },
   {
     title: 'Domestic Support',
-    description: 'Help with household chores and responsibilities',
+    description: 'Management of the household tasks and care of the children—if any are at home—that create a home environment that offers you a refuge from stress',
     importance: 0,
     satisfaction: 0
   },
   {
     title: 'Family Commitment',
-    description: 'Dedication to raising children and family activities',
+    description: 'Provision for the moral and educational development of your children within the family unit',
     importance: 0,
     satisfaction: 0
   },
   {
     title: 'Admiration',
-    description: 'Being respected, appreciated, and valued',
+    description: 'Being shown respect, value, and appreciation',
     importance: 0,
     satisfaction: 0
   }
@@ -196,8 +196,8 @@ const createChart = () => {
           y: need.importance,
           label: need.title
         })),
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(126, 87, 194, 0.6)', // Purple from primary color
+        borderColor: 'rgba(126, 87, 194, 1)',
         borderWidth: 1,
         pointRadius: 3,
         pointHoverRadius: 10

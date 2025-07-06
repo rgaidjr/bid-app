@@ -12,10 +12,10 @@
         />
 
         <q-toolbar-title>
-          Beyond I Do
+          <router-link to="/" class="title-link">Beyond I Do</router-link>
         </q-toolbar-title>
 
-        <div>BID July 2025</div>
+        <div>Davao July 2025</div>
       </q-toolbar>
     </q-header>
 
@@ -64,3 +64,17 @@ function toggleLeftDrawer () {
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
 </script>
+
+<style scoped>
+.title-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.title-link:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+</style>
