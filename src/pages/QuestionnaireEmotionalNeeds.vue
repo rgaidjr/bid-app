@@ -1,8 +1,8 @@
 <template>
   <q-page padding>
     <div class="q-pa-md">
-      <h4 class="q-mb-md">Emotional Needs Assessment</h4>
-      <p class="q-mb-lg">Rate each emotional need on a scale of 1-5 for both importance to you and your satisfaction level.</p>
+      <h3 class="page-title q-mb-md">Emotional Needs Assessment</h3>
+      <p class="intro-text q-mb-lg">Rate each emotional need on a scale of 1-5 for both importance to you and your satisfaction level.</p>
 
       <div class="q-gutter-y-md">
         <q-card v-for="(need, index) in emotionalNeeds" :key="index" class="q-mb-md">
@@ -328,5 +328,68 @@ watch(showSummary, (newVal) => {
 <style scoped>
 .q-rating >>> .q-icon {
   opacity: 0.8;
+}
+
+.q-page {
+  background-color: #f8f5fd;
+}
+
+.page-title {
+  color: #7E57C2;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #EC407A;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.intro-text {
+  color: #616161;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.text-h6 {
+  color: #5E35B1;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.text-subtitle2 {
+  color: #616161;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.q-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.q-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.q-card-section {
+  padding: 20px;
+}
+
+.text-caption {
+  color: #7E57C2;
+  font-weight: 500;
+}
+
+/* Style for the dialog */
+.chart-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
 }
 </style>
