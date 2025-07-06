@@ -53,8 +53,8 @@ const linksList = [
   {
     title: 'Emotional Needs',
     caption: 'His Needs, Her Needs: Making Romantic Love Last',
-    icon: 'school',
-    link: ''
+    icon: 'favorite',
+    link: '/emotional-needs'
   }
 ]
 
