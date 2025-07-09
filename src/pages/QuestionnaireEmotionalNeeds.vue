@@ -2,7 +2,11 @@
   <q-page padding>
     <div class="q-pa-md">
       <h3 class="page-title q-mb-md">Emotional Needs Assessment</h3>
-      <p class="intro-text q-mb-lg">Rate each emotional need on a scale of 1-5 for both importance to you and your satisfaction level.</p>
+      <p class="intro-text q-mb-lg">
+        Rate each emotional need on a scale of 1-5 (with 1 star as the lowest and 5 stars as the highest).
+        <br/>
+        Rate (i) how important this need is for you, and (ii) how satisfied are you with your spouse's ability to fill this need.
+      </p>
 
       <div class="q-gutter-y-md">
         <q-card v-for="(need, index) in emotionalNeeds" :key="index" class="q-mb-md">
@@ -14,7 +18,7 @@
           <q-card-section>
             <div class="row q-col-gutter-md">
               <div class="col-12 col-md-6">
-                <div class="text-subtitle2 q-mb-sm">Importance to you:</div>
+                <div class="text-subtitle2 q-mb-sm">Importance of this need for you:</div>
                 <q-rating
                   v-model="need.importance"
                   :max="5"
@@ -28,7 +32,7 @@
                 </div>
               </div>
               <div class="col-12 col-md-6">
-                <div class="text-subtitle2 q-mb-sm">Your satisfaction level:</div>
+                <div class="text-subtitle2 q-mb-sm">Your satisfaction level of your spouse's ability to fill this need:</div>
                 <q-rating
                   v-model="need.satisfaction"
                   :max="5"
