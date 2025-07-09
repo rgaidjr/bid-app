@@ -78,6 +78,7 @@
           </q-card-section-->
 
           <q-card-actions align="right">
+            <q-btn flat icon="download" label="Download Chart" color="secondary" @click="downloadChartImage" class="q-mr-sm" />
             <q-btn flat label="Close" color="primary" v-close-popup />
           </q-card-actions>
         </q-card>
@@ -88,6 +89,7 @@
 
 <script setup>
 import { ref, watch } from 'vue';
+import bidLogo from '../assets/bid-logo.jpg';
 import Chart from 'chart.js/auto';
 
 const emotionalNeeds = ref([
@@ -316,6 +318,60 @@ const createChart = () => {
       }
     }
   });
+};
+
+// Function to download chart as image
+const downloadChartImage = () => {
+  if (!chartCanvas.value) return;
+  
+  // Create a temporary canvas with white background
+  const tempCanvas = document.createElement('canvas');
+  const tempCtx = tempCanvas.getContext('2d');
+  
+  // Set dimensions to match the original canvas
+  tempCanvas.width = chartCanvas.value.width;
+  tempCanvas.height = chartCanvas.value.height;
+  
+  // Fill with white background
+  tempCtx.fillStyle = '#FFFFFF';
+  tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+  
+  // Draw the original chart onto the white background
+  tempCtx.drawImage(chartCanvas.value, 0, 0);
+  
+  // Add watermark logo
+  const logoImg = new Image();
+  logoImg.onload = () => {
+    // Calculate watermark size and position (bottom right corner)
+    const logoWidth = tempCanvas.width * 0.2; // 20% of canvas width
+    const logoHeight = logoWidth * (logoImg.height / logoImg.width); // maintain aspect ratio
+    const logoX = tempCanvas.width - logoWidth - 10; // 10px padding from right
+    const logoY = tempCanvas.height - logoHeight - 10; // 10px padding from bottom
+    
+    // Set transparency for watermark
+    tempCtx.globalAlpha = 0.2;
+    
+    // Draw the logo
+    tempCtx.drawImage(logoImg, logoX, logoY, logoWidth, logoHeight);
+    
+    // Reset transparency
+    tempCtx.globalAlpha = 1.0;
+    
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.download = 'emotional-needs-summary.png';
+    
+    // Convert the temporary canvas with white background to data URL
+    link.href = tempCanvas.toDataURL('image/png');
+    
+    // Append to body, click and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
+  // Set the source of the logo image
+  logoImg.src = bidLogo;
 };
 
 // Watch for dialog open to create/update chart
